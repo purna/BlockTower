@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour {
   [SerializeField] private Transform blockPrefab;
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour {
   private int startingLives = 3;
   private int livesRemaining;
   private bool playing = true;
+
+  public GameObject panel;
 
   // Start is called before the first frame update
   void Start() {
@@ -85,6 +88,8 @@ public class GameManager : MonoBehaviour {
     // Check for end of game.
     if (livesRemaining == 0) {
       playing = false;
+      panel.SetActive(true);
+
     }
   }
 }
